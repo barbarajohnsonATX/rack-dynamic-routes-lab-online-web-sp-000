@@ -10,8 +10,8 @@ class Application
       name = req.path.split("/items/").last 
       # find object in @@items
       item =  @@items.find {|i| i.name == name }
-      if item 
-        resp.write "#{item.price}\n"
+      if @@items.find {|i| i.name == name } 
+        resp.write "#{name.price}\n"
         resp.status = 200
       else 
         resp.write "Item not found\n"
