@@ -1,3 +1,4 @@
+require 'pry'
 class Application
    @@items = []
 
@@ -6,7 +7,7 @@ class Application
     req = Rack::Request.new(env)
 
     if req.path.match(/items/)
-      
+      binding.pry 
       name = req.path.split("/items/").last 
       if name 
         item = @@items.find {|i| i.name == name }
