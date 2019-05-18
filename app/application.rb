@@ -8,9 +8,9 @@ class Application
 
     if req.path.match(/items/)
       name = req.path.split("/items/").last 
-      if name 
-        item = @@items.find {|i| i.name == name }
-        resp.write #{item.price}\n"
+      item =  @@items.find {|i| i.name == name }
+      if item 
+        resp.write "#{item.price}\n"
         resp.status = 200
       end 
     else
